@@ -6,7 +6,7 @@
 
 ```shell
 export \
-    IMAGE_REPOSITORY=IMAGE_REPOSITORY \
+    IMAGE_REPOSITORY=*IMAGE_REPOSITORY* \
     PROJECT_ROOT=..
 ```
 
