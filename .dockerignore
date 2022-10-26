@@ -1,2 +1,10 @@
 /.git
 /.idea
+/app
+/schedule
+/webserver
+
+.gitignore
+docker-compose.yml
+example.env
+README.md
