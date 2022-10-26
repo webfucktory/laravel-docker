@@ -37,14 +37,14 @@ WORKDIR /root
 COPY \
     package.json \
     yarn.lock \
-    webpack.mix.js \
+    vite.config.js \
     ./
 COPY resources/js resources/js/
-COPY resources/sass resources/sass/
+COPY resources/css resources/css/
 
 RUN \
   yarn --production \
-  && yarn prod
+  && yarn build
 
 FROM base
 
@@ -52,8 +52,6 @@ LABEL org.opencontainers.image.source=REPOSITORY_URL
 
 COPY --from=vendor /var/www /var/www
 
-COPY --from=node_build /root/public/mix-manifest.json public/
-COPY --from=node_build /root/public/js public/js/
-COPY --from=node_build /root/public/css public/css/
+COPY --from=node_build /root/public/build public/build/
 
 ENTRYPOINT [ "/var/www/.docker/entrypoint.sh" ]
