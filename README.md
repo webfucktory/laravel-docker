@@ -1,56 +1,56 @@
 [Documentation](https://docs.docker.com/)
 
-## Build
+# Build
 
 ```shell
-export CONTAINER_REPOSITORY=ghcr.io/yuriy-martini/laravel-demo
+export IMAGE_REPOSITORY=ghcr.io/yuriy-martini/laravel-demo
 ```
 
 ```shell
 export PROJECT_ROOT=~/laravel-demo
 ```
 
-### Base
+## Base
 
 ```shell
 docker build \
-  -t $CONTAINER_REPOSITORY/base:latest \
+  -t IMAGE_REPOSITORY/base:latest \
   -f Dockerfile \
   $PROJECT_ROOT
 ```
 
-### App
+## App
 
 ```shell
 docker build \
-  -t $CONTAINER_REPOSITORY/app:latest \
+  -t IMAGE_REPOSITORY/app:latest \
   -f app.Dockerfile \
   .
 ```
 
-### Webserver
+## Webserver
 
 ```shell
 docker build \
-  -t $CONTAINER_REPOSITORY/webserver:latest \
+  -t IMAGE_REPOSITORY/webserver:latest \
   -f webserver.Dockerfile \
   .
 ```
 
-### Queue Worker
+## Queue Worker
 
 ```shell
 docker build \
-  -t $CONTAINER_REPOSITORY/queue:latest \
+  -t IMAGE_REPOSITORY/queue:latest \
   -f queue.Dockerfile \
   .
 ```
 
-### Schedule Runner
+## Schedule Runner
 
 ```shell
 docker build \
-  -t $CONTAINER_REPOSITORY/schedule:latest \
+  -t IMAGE_REPOSITORY/schedule:latest \
   -f schedule.Dockerfile \
   .
 ```
