@@ -1,4 +1,4 @@
-FROM php:7.2-fpm as base
+FROM php:fpm as base
 
 RUN \
     apt-get update \
@@ -14,7 +14,7 @@ WORKDIR /var/www
 
 FROM base as vendor
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 COPY composer.json composer.lock ./
 
@@ -29,8 +29,8 @@ RUN composer install \
 COPY . .
 
 RUN \
-    composer dumpautoload && \
-    php artisan storage:link
+    composer dumpautoload  \
+    && php artisan storage:link
 
 FROM node:alpine as node_build
 
@@ -58,4 +58,4 @@ COPY --from=node_build /root/public/mix-manifest.json public/
 COPY --from=node_build /root/public/js public/js/
 COPY --from=node_build /root/public/css public/css/
 
-ENTRYPOINT [ "/var/www/docker/entrypoint.sh" ]
+ENTRYPOINT [ "/var/www/.docker/entrypoint.sh" ]

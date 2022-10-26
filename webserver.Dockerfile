@@ -1,4 +1,4 @@
-FROM nginx:1.21-alpine
+FROM nginx:alpine
 
 LABEL org.opencontainers.image.source=https://github.com/yuriy-martini/laravel-demo
 

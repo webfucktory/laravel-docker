@@ -1,8 +1,3 @@
 /.idea
 
 .env
-Dockerfile
-app.Dockerfile
-queue.Dockerfile
-schedule.Dockerfile
-webserver.Dockerfile
