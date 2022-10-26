@@ -48,7 +48,7 @@ RUN \
 
 FROM base
 
-LABEL org.opencontainers.image.source=https://github.com/yuriy-martini/laravel-demo
+LABEL org.opencontainers.image.source=REPOSITORY_URL
 
 COPY --from=vendor /var/www /var/www
 

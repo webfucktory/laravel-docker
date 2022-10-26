@@ -6,8 +6,8 @@
 
 ```shell
 export \
-    IMAGE_REPOSITORY=ghcr.io/yuriy-martini/laravel-demo \
-    PROJECT_ROOT=~/laravel-demo
+    IMAGE_REPOSITORY=IMAGE_REPOSITORY \
+    PROJECT_ROOT=..
 ```
 
 ### Base

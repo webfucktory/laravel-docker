@@ -1,5 +1,5 @@
-FROM ghcr.io/yuriy-martini/laravel-demo/base
+FROM IMAGE_REPOSITORY/base
 
-LABEL org.opencontainers.image.source=https://github.com/yuriy-martini/laravel-demo
+LABEL org.opencontainers.image.source=REPOSITORY_URL
 
 CMD ["php", "artisan", "queue:work", "--tries", "3"]

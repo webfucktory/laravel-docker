@@ -1,5 +1,5 @@
 FROM nginx:alpine
 
-LABEL org.opencontainers.image.source=https://github.com/yuriy-martini/laravel-demo
+LABEL org.opencontainers.image.source=REPOSITORY_URL
 
-COPY --from=ghcr.io/yuriy-martini/laravel-demo/base /var/www /var/www
+COPY --from=IMAGE_REPOSITORY/base /var/www /var/www
