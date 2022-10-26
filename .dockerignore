@@ -1,7 +1,6 @@
 /.git
 /.idea
 /app
-/schedule
 /webserver
 
 .gitignore
