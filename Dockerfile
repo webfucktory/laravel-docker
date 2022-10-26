@@ -28,9 +28,7 @@ RUN composer install \
 
 COPY . .
 
-RUN \
-    composer dumpautoload  \
-    && php artisan storage:link
+RUN composer dumpautoload
 
 FROM node:alpine as node_build
 
