@@ -1,4 +1,4 @@
-FROM php:fpm as base
+FROM php:7.4.32-fpm as base
 
 RUN \
     apt-get update \
