@@ -25,7 +25,7 @@ docker build \
 docker build \
   -t $IMAGE_REPOSITORY/app:latest \
   -f app.Dockerfile \
-  .
+  $PROJECT_ROOT
 ```
 
 ### Webserver
@@ -34,7 +34,7 @@ docker build \
 docker build \
   -t $IMAGE_REPOSITORY/webserver:latest \
   -f webserver.Dockerfile \
-  .
+  $PROJECT_ROOT
 ```
 
 ### Queue Worker
@@ -43,7 +43,7 @@ docker build \
 docker build \
   -t $IMAGE_REPOSITORY/queue:latest \
   -f queue.Dockerfile \
-  .
+  $PROJECT_ROOT
 ```
 
 ### Schedule Runner
@@ -52,5 +52,5 @@ docker build \
 docker build \
   -t $IMAGE_REPOSITORY/schedule:latest \
   -f schedule.Dockerfile \
-  .
+  $PROJECT_ROOT
 ```
