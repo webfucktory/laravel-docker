@@ -1,4 +1,8 @@
-FROM php:fpm as base
+ARG composer_version=latest
+ARG node_version=latest
+ARG php_version=latest
+
+FROM php:$php_version as base
 
 RUN \
     apt-get update \
@@ -7,10 +11,14 @@ RUN \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install -j$(nproc) \
-        pdo_mysql \
-        zip
+      pdo_mysql \
+      zip
 
-WORKDIR /var/www
+RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+
+WORKDIR /var/www/html
+
+FROM composer:$composer_version as composer
 
 FROM base as vendor
 
@@ -30,7 +38,7 @@ COPY . .
 
 RUN composer dumpautoload
 
-FROM node:alpine as node_build
+FROM node:$node_version as build
 
 WORKDIR /root
 
@@ -50,8 +58,6 @@ FROM base
 
 LABEL org.opencontainers.image.source=REPOSITORY_URL
 
-COPY --from=vendor /var/www /var/www
+COPY --from=vendor /var/www/html .
 
-COPY --from=node_build /root/public/build public/build/
-
-ENTRYPOINT [ "/var/www/.docker/entrypoint.sh" ]
+COPY --from=build /root/public/build public/build/

@@ -1,56 +1,17 @@
-[Docker official documentation](https://docs.docker.com/)
-
-# Laravel Docker
-
 ## Build
 
-```shell
-export \
-    IMAGE_REPOSITORY=*IMAGE_REPOSITORY* \
-    PROJECT_ROOT=..
-```
+See [build/README.md](build/README.md)
 
-### Base
+## Test
+
+From `<project root>` path, run:
 
 ```shell
-docker build \
-  -t $IMAGE_REPOSITORY/base:latest \
-  -f Dockerfile \
-  $PROJECT_ROOT
+docker run \
+  -p 8000:8000 \
+  -v $(pwd)/.env:/var/www/html/.env:ro \
+  BASE_IMAGE/app \
+  php artisan serve --host 0.0.0.0
 ```
 
-### App
-
-```shell
-docker build \
-  -t $IMAGE_REPOSITORY/app:latest \
-  -f app.Dockerfile \
-  $PROJECT_ROOT
-```
-
-### Webserver
-
-```shell
-docker build \
-  -t $IMAGE_REPOSITORY/webserver:latest \
-  -f webserver.Dockerfile \
-  $PROJECT_ROOT
-```
-
-### Queue Worker
-
-```shell
-docker build \
-  -t $IMAGE_REPOSITORY/queue:latest \
-  -f queue.Dockerfile \
-  $PROJECT_ROOT
-```
-
-### Schedule Runner
-
-```shell
-docker build \
-  -t $IMAGE_REPOSITORY/schedule:latest \
-  -f schedule.Dockerfile \
-  $PROJECT_ROOT
-```
+Visit [127.0.0.1:8000](http://127.0.0.1:8000/)

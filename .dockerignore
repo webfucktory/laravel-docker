@@ -1,9 +1,0 @@
-/.git
-/.idea
-/app
-/webserver
-
-.gitignore
-docker-compose.yml
-example.env
-README.md
