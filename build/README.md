@@ -11,44 +11,36 @@ docker build \
 
 ### App
 
-From `<project root>/.docker/build` path, run:
-
 ```shell
 docker build \
-  -f app.Dockerfile \
+  -f .docker/build/app.Dockerfile \
   -t BASE_IMAGE/app \
   .
 ```
 
 ### Webserver
 
-From `<project root>/.docker/build` path, run:
-
 ```shell
 docker build \
-  -f webserver.Dockerfile \
+  -f .docker/build/webserver.Dockerfile \
   -t BASE_IMAGE/webserver \
   .
 ```
 
 ### Queue Worker
 
-From `<project root>/.docker/build` path, run:
-
 ```shell
 docker build \
-  -f queue.Dockerfile \
+  -f .docker/build/queue.Dockerfile \
   -t BASE_IMAGE/queue \
   .
 ```
 
 ### Schedule Runner
 
-From `<project root>/.docker/build` path, run:
-
 ```shell
 docker build \
-  -f schedule.Dockerfile \
+  -f .docker/build/schedule.Dockerfile \
   -t BASE_IMAGE/schedule \
   .
 ```
