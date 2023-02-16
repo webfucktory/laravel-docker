@@ -15,3 +15,11 @@ docker run \
 ```
 
 Visit [127.0.0.1:8000](http://127.0.0.1:8000/)
+
+## Deploy
+
+### Swarm mode
+
+<https://docs.docker.com/engine/swarm/>
+
+See [swarm/README.md](swarm/README.md)
