@@ -1,3 +1,9 @@
+## Remote Server
+
+```shell
+docker stack deploy -c .yml traefik
+```
+
 ## Local
 
 ```shell
