@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  pma:
+    image: phpmyadmin:latest
+    depends_on:
+      - maria
+    environment:
+      PMA_HOST: maria
+    networks:
+      - maria
+      - traefik
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik
+        - traefik.constraint-label=traefik
+        - traefik.http.routers.laravel_db-pma-http.rule=Host(`pma.localhost`)
+        - traefik.http.routers.laravel_db-pma-http.entrypoints=http
+        - traefik.http.services.laravel_db-pma-http.loadbalancer.server.port=80
+
+networks:
+    traefik:
+      external: true
