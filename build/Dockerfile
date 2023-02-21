@@ -61,3 +61,5 @@ LABEL org.opencontainers.image.source=REPOSITORY_URL
 COPY --from=vendor /var/www/html .
 
 COPY --from=build /root/public/build public/build/
+
+RUN chown www-data:www-data -R .
