@@ -1,6 +1,6 @@
 ARG composer_version=latest
 ARG node_version=latest
-ARG php_version=latest
+ARG php_version=fpm
 
 FROM php:$php_version as base
 
