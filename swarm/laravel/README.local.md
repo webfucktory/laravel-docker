@@ -1,5 +1,5 @@
 ```shell
-cp example.local.env .env
+cp example.env .env
 ```
 
 ```shell
