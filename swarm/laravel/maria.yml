@@ -15,8 +15,7 @@ services:
       - maria
 
 networks:
-    maria:
-      attachable: true
+  maria:
 
 volumes:
   maria_data:

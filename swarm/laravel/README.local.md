@@ -6,6 +6,22 @@ cp example.env .env
 docker secret create laravel_env .env
 ```
 
+# (optional) DB
+
+## Maria
+
+```shell
+export $(grep -v '^#' .env | xargs) && \
+docker stack deploy -c maria.yml laravel
+```
+
+## (optional) PMA
+
+```shell
+export $(grep -v '^#' .env | xargs) && \
+docker stack deploy -c pma.local.yml laravel
+```
+
 # App
 
 ```shell

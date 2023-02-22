@@ -2,14 +2,9 @@ version: '3.8'
 
 services:
   pma:
-    image: phpmyadmin:latest
     depends_on:
       - maria
-    environment:
-      PMA_HOST: maria
-    networks:
-      - maria
-      - traefik
+
     deploy:
       labels:
         - traefik.constraint-label=traefik
@@ -31,6 +26,13 @@ services:
         - traefik.http.routers.laravel_db-pma-https.tls=true
         - traefik.http.routers.laravel_db-pma-https.tls.certresolver=le
 
+    image: phpmyadmin:latest
+
+    networks:
+      - maria
+      - traefik
+
 networks:
+  maria:
   traefik:
     external: true

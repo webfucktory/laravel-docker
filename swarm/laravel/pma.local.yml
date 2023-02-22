@@ -2,12 +2,9 @@ version: '3.8'
 
 services:
   pma:
-    image: phpmyadmin:latest
     depends_on:
       - maria
-    networks:
-      - maria
-      - traefik
+
     deploy:
       labels:
         - traefik.enable=true
@@ -17,6 +14,13 @@ services:
         - traefik.http.routers.laravel_db-pma-http.entrypoints=http
         - traefik.http.services.laravel_db-pma-http.loadbalancer.server.port=80
 
+    image: phpmyadmin:latest
+
+    networks:
+      - maria
+      - traefik
+
 networks:
-    traefik:
-      external: true
+  maria:
+  traefik:
+    external: true

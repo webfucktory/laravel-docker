@@ -7,6 +7,7 @@ services:
 
     networks:
       - app
+      - maria
 
     volumes:
       - public_storage:/var/www/html/storage/app/public
@@ -23,6 +24,7 @@ services:
 
 networks:
   app:
+  maria:
 
 volumes:
   public_storage:
