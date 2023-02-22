@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   app:
-    image: *BASE_IMAGE*/app:${VERSION}
+    image: *BASE_IMAGE*/app:${APP_VERSION}
 
     networks:
       - app
