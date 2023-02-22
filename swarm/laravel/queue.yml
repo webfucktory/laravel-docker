@@ -8,9 +8,20 @@ services:
 
     image: *BASE_IMAGE*/queue:${VERSION}
 
+    volumes:
+      - public_storage:/var/www/html/storage/app/public
+      - storage:/var/www/html/storage/app
+
+      - queue_framework_cache_data:/var/www/html/storage/framework/cache/data
+      - queue_logs:/var/www/html/storage/logs
+
     secrets:
       - source: laravel_env
         target: /var/www/html/.env
+
+volumes:
+  queue_framework_cache_data:
+  queue_logs:
 
 secrets:
   laravel_env:
