@@ -7,7 +7,7 @@ services:
       - source: laravel_env
         target: /var/www/html/.env
 
-    image: ghcr.io/webfucktory/example-laravel/schedule:${VERSION}
+    image: *BASE_IMAGE*/schedule:${VERSION}
 
 secrets:
   laravel_env:

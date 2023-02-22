@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   queue:
-    image: ghcr.io/webfucktory/example-laravel/queue:${VERSION}
+    image: *BASE_IMAGE*/queue:${VERSION}
 
     secrets:
       - source: laravel_env

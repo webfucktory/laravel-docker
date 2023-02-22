@@ -16,7 +16,7 @@ services:
         - traefik.http.routers.laravel-webserver-http.rule=Host(`localhost`)
         - traefik.http.routers.laravel-webserver-http.entrypoints=http
 
-    image: ghcr.io/webfucktory/example-laravel/webserver:${VERSION}
+    image: *BASE_IMAGE*/webserver:${VERSION}
 
     networks:
       - app
