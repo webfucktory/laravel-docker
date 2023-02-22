@@ -8,6 +8,7 @@ services:
       MYSQL_USER: $MARIA_USER
       MYSQL_PASSWORD: $MARIA_PASSWORD
       MYSQL_ROOT_PASSWORD: $MARIA_ROOT_PASSWORD
+    hostname: db
     volumes:
       - maria_data:/var/lib/mysql
     networks:

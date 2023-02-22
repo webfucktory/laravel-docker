@@ -5,8 +5,6 @@ services:
     image: phpmyadmin:latest
     depends_on:
       - maria
-    environment:
-      PMA_HOST: maria
     networks:
       - maria
       - traefik
