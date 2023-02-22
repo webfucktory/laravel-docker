@@ -3,11 +3,14 @@ version: '3.8'
 services:
 
   schedule:
+    depends_on:
+      - app
+
+    image: *BASE_IMAGE*/schedule:${VERSION}
+
     secrets:
       - source: laravel_env
         target: /var/www/html/.env
-
-    image: *BASE_IMAGE*/schedule:${VERSION}
 
 secrets:
   laravel_env:

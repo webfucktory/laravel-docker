@@ -3,6 +3,9 @@ version: '3.8'
 services:
 
   queue:
+    depends_on:
+      - app
+
     image: *BASE_IMAGE*/queue:${VERSION}
 
     secrets:
