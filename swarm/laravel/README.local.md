@@ -6,6 +6,19 @@ cp example.env .env
 docker secret create laravel_env .env
 ```
 
+```shell
+export $(grep -v '^#' .env | xargs) && \
+docker \
+  stack deploy \
+      -c app.yml \
+      -c maria.yml \
+      -c pma.local.yml \
+      -c queue.yml \
+      -c schedule.yml \
+      -c webserver.local.yml \
+    laravel
+```
+
 # (optional) DB
 
 ## Maria
@@ -26,7 +39,7 @@ docker stack deploy -c pma.local.yml laravel
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
-docker stack deploy -c app.yml -c webserver.local.yml laravel
+docker stack deploy -c app.yml laravel
 ```
 
 ```shell
@@ -53,6 +66,13 @@ docker stack deploy -c queue.yml laravel
 
 ```shell
 docker service update --network-add laravel_db_maria laravel_schedule
+```
+
+# Webserver
+
+```shell
+export $(grep -v '^#' .env | xargs) && \
+docker stack deploy -c webserver.local.yml laravel
 ```
 
 ```shell
