@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  queue:
+    image: ghcr.io/webfucktory/example-laravel/queue:${VERSION}
+
+    secrets:
+      - source: laravel_env
+        target: /var/www/html/.env
+
+secrets:
+  laravel_env:
+    external: true

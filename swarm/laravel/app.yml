@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+
+  app:
+    image: ghcr.io/webfucktory/example-laravel/app:${VERSION}
+
+    networks:
+      - app
+
+    secrets:
+      - source: laravel_env
+        target: /var/www/html/.env
+
+networks:
+  app:
+
+secrets:
+  laravel_env:
+    external: true

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  schedule:
+    secrets:
+      - source: laravel_env
+        target: /var/www/html/.env
+
+    image: ghcr.io/webfucktory/example-laravel/schedule:${VERSION}
+
+secrets:
+  laravel_env:
+    external: true
