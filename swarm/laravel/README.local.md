@@ -1,10 +1,12 @@
-```shell
-cp example.env .env
-```
+1. create `laravel_env` secret
 
-```shell
-docker secret create laravel_env .env
-```
+    from `<laravel app>` root: `docker secret create laravel_env .env`
+
+2. create `.env`
+
+   `cp example.env .env`
+   
+3. deploy stack
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
@@ -19,44 +21,48 @@ docker \
     laravel
 ```
 
-# (optional) DB
+4. <http://localhost:8000>
 
-## Maria
+---
+
+## (optional) DB
+
+### Maria
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
 docker stack deploy -c maria.yml laravel
 ```
 
-## (optional) PMA
+### (optional) PMA
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
 docker stack deploy -c pma.local.yml laravel
 ```
 
-# App
+## App
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
 docker stack deploy -c app.yml laravel
 ```
 
-# (optional) Queue worker
+## (optional) Queue worker
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
 docker stack deploy -c queue.yml laravel
 ```
 
-# (optional) Schedule runner
+## (optional) Schedule runner
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
 docker stack deploy -c queue.yml laravel
 ```
 
-# Webserver
+## Webserver
 
 ```shell
 export $(grep -v '^#' .env | xargs) && \
