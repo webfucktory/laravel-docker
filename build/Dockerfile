@@ -16,6 +16,8 @@ RUN \
 
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
+COPY .docker/build/app/php/conf.d/*.ini /usr/local/etc/php/conf.d/
+
 WORKDIR /var/www/html
 
 FROM composer:$composer_version as composer
