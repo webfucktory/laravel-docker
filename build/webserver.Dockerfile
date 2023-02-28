@@ -5,6 +5,6 @@ FROM BASE_IMAGE:$base_image_version as base
 
 FROM nginx:$nginx_version
 
-COPY .docker/build/nginx/conf.d /etc/nginx/conf.d
+COPY .docker/build/webserver/nginx/conf.d /etc/nginx/conf.d
 
 COPY --from=base /var/www/html /var/www/html
